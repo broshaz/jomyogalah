@@ -47,14 +47,15 @@ pipeline {
     
     stage ('Deploy-To-Tomcat') {
             steps {
-                sh 'cp target/*.war /prod/apache-tomcat-8.5.61/webapps/webapp.war'     
+              //  sh 'cp target/*.war /prod/apache-tomcat-8.5.61/webapps/webapp.war' 
+                sh 'cp target/*.war /var/lib/tomcat9/webapps/dvja.war'
            }       
     }
-  
+  /*
     stage ('DAST') {
       steps {
          sh '"docker run -t owasp/zap2docker-stable zap-baseline.py -t http://localhost:8082/webapp/" || true'
       }
-    }
+    }*/
   }
 }
